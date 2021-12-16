@@ -15,11 +15,17 @@ b.next = c;
 c.next = d;
 
 
-const printLinkedList = (head) => {
-    if (head !== null) return; 
-    console.log(head.val);
-    printLinkedList(head.next);
+const linkedListValues = (head) => {
+    const values = []; 
+    fillValues(head, values);
+    return values;
+}
+
+const fillValues = (head, values) => {
+    if (head === null) return; 
+    values.push(head.val);
+    fillValues(head.next, values);
 }
 
 
-printLinkedList(a);
+linkedListValues(a);
